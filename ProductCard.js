@@ -6,6 +6,7 @@ const ProductCard = ({ product, addToCart, cartItems }) => {
   const isInCart = cartItems.some((item) => item.id === product.id);
 
   const handleAdd = () => {
+    setMessage("Add to Cart clicked");
     if (isInCart) {
       setMessage("Item already in cart");
     } else {
