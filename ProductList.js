@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ProductCard from "./ProductCard"; // import the card
+import axios from "axios";
 
-const ProductList = ({ products, addToCart }) => {
+const ProductList = ({ addToCart, cartItems }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://fakestoreapi.com/products").then((res) => {
+      setProducts(res.data);
+    });
+  }, []);
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="flex flex-wrap justify-center gap-4 p-4">
       {products.map((product) => (
-        <div key={product.id} className="border p-4 rounded shadow">
-          <img src={product.image} alt={product.title} className="h-40 object-contain mx-auto mb-2" />
-          <h2 className="text-lg font-semibold">{product.title}</h2>
-          <p className="text-sm text-gray-700">${product.price}</p>
-          <button
-            className="mt-2 bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-7-- transform hover:scale-105 transition-transform duration-300"
-            onClick={() => addToCart(product)}
-          >
-            Add to Cart
-          </button>
-        </div>
+        <ProductCard
+          key={product.id}
+          product={product}
+          addToCart={addToCart}
+          cartItems={cartItems}
+        />
       ))}
     </div>
   );
