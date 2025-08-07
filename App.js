@@ -20,6 +20,7 @@ const App = () => {
       alert("Item already added to the cart");
     } else {
       setCartItems([...cartItems, product]);
+      alert("Item added to the cart"); // ✅ Add this
     }
   };
 
