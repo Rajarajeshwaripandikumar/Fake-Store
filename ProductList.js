@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "./ProductCard"; // import the card
+import ProductCard from "./Productcard"; // import the card
 import axios from "axios";
 
 const ProductList = ({ addToCart, cartItems }) => {
