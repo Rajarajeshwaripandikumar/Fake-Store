@@ -34,7 +34,7 @@ This is a responsive ReactJS application that fetches product data from the [Fak
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/fake-store-cart-app.git
+git clone https://github.com/Rajarajeshwaripandikumar/Fake-Store.git
 cd fake-store-cart-app
 
 # Install dependencies
